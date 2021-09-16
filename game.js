@@ -17,28 +17,31 @@ var config = {
         update:update,
     }
 };
-var game = new Phaser.Game(config);
+var game = new Phaser.Game(config)
     function preload(){
-        this.load.image('background','assets/background.png');
-        this.load.image('message-initial','assets/message-initial.png');
-        this.load.image('bird','assets/bird.png');
-        this.load.image('pipe-green-top','assets/pipe-green-top.png');
-        this.load.image('pipe-green-bottom','assets/pipe-green-bottom.png');
-        this.load.image('number1','assets/number1.png');
-        this.load.image('number2','assets/number2.png');
-        this.load.image('number3','assets/number3.png');
-        this.load.image('number4','assets/number4.png');
-        this.load.image('number5','assets/number5.png');
-        this.load.image('number6','assets/number6.png');
-        this.load.image('number7','assets/number7.png');
-        this.load.image('number8','assets/number8.png');
-        this.load.image('number9','assets/number9.png');
-        this.load.image('gameover','assets/gameover.png');
-        this.load.image('restart-button','assets/restart-button.png');
+        this.load.image('background','assets/images/background.png');
+        this.load.image('message','assets/images/message.png')
+        this.load.image('assets.bird','assets/images/bird.png');
+        this.load.image('pipe-green-top','assets/images/pipe-green-top.png');
+        this.load.image('pipe-green-bottom','assets/images/pipe-green-bottom.png');
+        this.load.image('number1','assets/images/number1.png');
+        this.load.image('number2','assets/images/number2.png');
+        this.load.image('number3','assets/images/number3.png');
+        this.load.image('number4','assets/images/number4.png');
+        this.load.image('number5','assets/images/number5.png');
+        this.load.image('number6','assets/images/number6.png');
+        this.load.image('number7','assets/images/number7.png');
+        this.load.image('number8','assets/images/number8.png');
+        this.load.image('number9','assets/images/number9.png');
+        this.load.image('ground', 'assets/images/ground.png');
+        this.load.image('restart-button','assets/images/restart-button.png');
+        this.load.image('gameover','assets/images/gameover.png');
     }
 
     function create(){
         this.add.image(144,256,'background');
+        this.add.image(100,500,'ground');
+        this.add.image(140, 220,'message')
     }
 
     function update(){
