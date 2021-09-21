@@ -20,8 +20,10 @@ var config = {
 var game = new Phaser.Game(config)
     function preload(){
         this.load.image('background','assets/images/background.png');
-        this.load.image('message','assets/images/message.png')
-        this.load.image('assets.bird','assets/images/bird.png');
+        this.load.spritesheet('bird', 'assets/images/bird.png', {
+            frameWidth: 34,
+            frameHeight: 24
+        })
         this.load.image('pipe-green-top','assets/images/pipe-green-top.png');
         this.load.image('pipe-green-bottom','assets/images/pipe-green-bottom.png');
         this.load.image('number1','assets/images/number1.png');
@@ -41,7 +43,12 @@ var game = new Phaser.Game(config)
     function create(){
         this.add.image(144,256,'background');
         this.add.image(100,500,'ground');
-        this.add.image(140, 220,'message')
+        this.bird = this.add.sprite(config.width/2 , config.height/2,'bird')
+        this.anims.create({
+            key:'bird',
+            frame:this.anims.generateFrameNumbers('bird'),
+            frameRate
+        })
     }
 
     function update(){
