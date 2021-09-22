@@ -1,3 +1,4 @@
+   
 var config = {
     type:Phaser.AUTO,
     width : 288,
@@ -35,22 +36,19 @@ var game = new Phaser.Game(config)
         this.load.image('number7','assets/images/number7.png');
         this.load.image('number8','assets/images/number8.png');
         this.load.image('number9','assets/images/number9.png');
-        this.load.image('ground', 'assets/images/ground.png');
+        this.load.image('ground', 'assets/images/ground.png',)
         this.load.image('restart-button','assets/images/restart-button.png');
         this.load.image('gameover','assets/images/gameover.png');
     }
-
+    
     function create(){
         this.add.image(144,256,'background');
         this.add.image(100,500,'ground');
-        this.bird = this.add.sprite(config.width/2 , config.height/2,'bird')
-        this.anims.create({
-            key:'bird',
-            frame:this.anims.generateFrameNumbers('bird'),
-            frameRate
-        })
+      
+        this.bird = this.physics.add.sprite(config.width/2 , config.height/2,'bird')
+       
     }
 
     function update(){
-
+       
     }
