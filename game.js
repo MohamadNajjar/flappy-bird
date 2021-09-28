@@ -19,6 +19,7 @@ var config = {
     }
 };
 var game = new Phaser.Game(config)
+
     function preload(){
      this.load.image('background','assets/images/background.png');
         this.load.spritesheet('bird', 'assets/images/bird.png', {
@@ -43,8 +44,9 @@ var game = new Phaser.Game(config)
     
     function create(){
         this.background = this.add.image(200, 90, 'background');
-         this.ground = this.add.tileSprite(145,600, config.width, config.height, 'ground');
-        this.bird = this.physics.add.sprite(config.width / 2 , config.height / 2, 'bird');
+         this.ground = this.add.tileSprite(145,700, config.width, config.height, 'ground');
+        this.bird = this.physics.add.sprite(config.width / 2, config.height / 2, 'bird');
+        
         
        
     }
