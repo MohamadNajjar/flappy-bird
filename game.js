@@ -1,8 +1,8 @@
    
 var config = {
     type:Phaser.AUTO,
-    width : 288,
-    height : 512,
+    width : 800,
+    height : 600,
     physics: {
         default: 'arcade',
         arcade: {
@@ -37,20 +37,37 @@ var game = new Phaser.Game(config)
         this.load.image('number7','assets/images/number7.png');
         this.load.image('number8','assets/images/number8.png');
         this.load.image('number9','assets/images/number9.png');
-        this.load.image('ground', 'assets/images/ground.png',)
         this.load.image('restart-button','assets/images/restart-button.png');
         this.load.image('gameover','assets/images/gameover.png');
     }
-    
     function create(){
-        this.background = this.add.image(200, 90, 'background');
-         this.ground = this.add.tileSprite(145,700, config.width, config.height, 'ground');
-        this.bird = this.physics.add.sprite(config.width / 2, config.height / 2, 'bird');
-        
-        
+        platforms = this.physics.add.staticGroup();
        
+
+        this.background = this.add.tileSprite(config.width/2, config.height/2, 800, 600, 'background')
+        this.bird = this.physics.add.sprite(100, config.height / 2, 'bird');
+        this.bird.setBounce(0.2);
+        this.bird.setCollideWorldBounds(true);
+        cursor = this.input.keyboard.createCursorKeys();
+
+        this.anims.create({
+            key : 'flap',
+            frames : this.anims.generateFrameNumbers('bird',{start : 0 , end : 2  }),
+            frameRate: 20,  
+        });
+        
+
+    this.physics.add.collider(this.bird, platforms, this.birdHit, null, game)
+
+   
+    
     }
+    
 
     function update(){
-        this.ground.tilePositionX -= 1
+        this.background.tilePositionX += 1
+        if(cursor.up.isDown)
+        {
+            this.bird.setVelocityY(-200);
+        }
     }
